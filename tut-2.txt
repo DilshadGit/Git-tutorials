@@ -1,0 +1,220 @@
+git diff
+
+This (git diff) Show unstaged differences since last commit.
+
+git add tut-2.txt
+
+When you add the file to staged area and run git diff doesn't display any change because we alread
+added to stage area (to current branch). But if we change some more in the tut-2.txt file and run
+git diff will show the changes has been done before add to the branch.
+
+Example:
+Git-tutorials$ git diff
+diff --git a/tut-2.txt b/tut-2.txt
+index e69de29..f0dce39 100644
+--- a/tut-2.txt
++++ b/tut-2.txt
+@@ -0,0 +1,11 @@
++git diff
++
++This (git diff) Show unstaged differences since last commit.
++
++git add tut-2.txt
++
++When you add the file to staged area and run git diff doesn't display any change because we alread
++added to stage area (to current branch). But if we change some more in the tut-2.txt file and run
++git diff will show the changes has been done before add to the branch.
++
++
+
+git diff --staged
+
+diff --git a/tut-2.txt b/tut-2.txt
+new file mode 100644
+index 0000000..e69de29
+
+##############
+
+git reset HEAD <filename>
+
+Example:
+touch LICENSE
+Git-tutorials$ ls
+git-help.txt  LICENSE  README.md  set-up.txt  tut-1.txt  tut-2.txt
+Git-tutorials$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+    new file:   tut-2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   tut-2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+    LICENSE
+
+Git-tutorials$ git add LICENSE
+Git-tutorials$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+    new file:   LICENSE
+    new file:   tut-2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   tut-2.txt
+
+Git-tutorials$ git reset HEAD LICENSE
+Unstaged changes after reset:
+M   tut-2.txt
+Git-tutorials$ git status
+On branch main
+Your branch is up-to-date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+    new file:   tut-2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   tut-2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+    LICENSE
+
+################
+
+HEAD command refered to last commit in current branch and timeline on.
+
+git checkout -- LICENSE  <-- Blow away all changed since last commit
+
+git commit -a -m "Modify readme"
+
+This (git commit -a -m "Modify readme") is a short cut of git add && git commit -m 'Modify readme',
+it add and commit in one line (add changes from all tracked files)
+
+git reset --soft HEAD^
+
+The (--soft) Reset into staging
+The (^) Move to commit before 'HEAD'
+
+Example:
+Git-tutorials$ git reset --soft HEAD^
+Git-tutorials$ git status
+On branch main
+Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+    new file:   tut-1.txt
+    new file:   tut-2.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+    modified:   tut-2.txt
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+    LICENSE
+
+##########################
+
+touch todo.txt
+Git-tutorials$ git add todo.txt
+Git-tutorials$ git commit --amend -m "Modify readme & add todo.txt"
+[main 9257e0a] Modify readme & add todo.txt
+ Date: Thu Apr 28 01:25:13 2022 +0100
+ 4 files changed, 37 insertions(+), 4 deletions(-)
+ create mode 100644 todo.txt
+ create mode 100644 tut-1.txt
+ create mode 100644 tut-2.txt
+
+The (--amend) Add to the last commit
+The ("Modify readme & add todo.txt") Is a new commit message whatever has been staged is added to the last commit
+
+git reset --soft HEAD^ <-- Undo last commit, put changes into staging
+
+git commit --amend -m "New messages" <-- change the last commit
+
+git reset --hard HEAD^ <-- Undo last commit and all changes has been made
+
+git reset --hard HEAD^^ <-- Undo the last 2 commits and all changes has been made
+
+GitHub:
+Create Repository on www.github.com/new
+
+git remote add origin https://github.com/Dilshadgit/repositoryname
+
+The (add) New remote
+The (origin) Our name for this remote
+The (https://github.com/Dilshadgit/repositoryname) Is the address
+
+git remote -v
+
+The (-v) show remote repositories
+
+Push to Remote
+
+git push -u origin main
+
+The (origin) remote repository name
+The (main) local branch to push
+
+In this case the terminal required:
+username of gitgub account and password
+
+git pull <-- this pull the changes to the machine
+
+Working with remote repository:
+
+To add new remots:
+git remote add <name> <address> (Look at line 159)
+
+To remove remotes:
+git remote rm <name>
+
+To push to remote:
+git push -u <name> <branch>
+
+The <branch> Usually is master branch
+The (-u) Is used first but the next time not need to specify the branch name just run git push
+
+HEROKU REMOTE:
+
+$ heroku create
+create the branch and showing git repo ssh address
+
+Example:
+Git-tutorials$ heroku create
+Creating app... !
+ ▸    Invalid credentials provided.
+heroku: Press any key to open up the browser to login or q to exit:
+Opening browser to https://cli-auth.heroku.com/auth/cli/browser/9e002c8e-aeef-4c08-8f39-fa504bcc49de?requestor=SFMyNTY.g2gDbQAAAA44NS4yNTUuMjM0LjIxMG4GAIjx622AAWIAAVGA.1i_Y8j61a2CiLIYqZFZODcyverUdLOPBVbaS1PVwS0U
+heroku: Waiting for login... ⣽
+
+git remote -v
+
+git push heroku master --> this will triggers deploy
+
+IMPORTANT NOTICE:
+
+All the commands below is used before push to the branch, Don't do these after you push
+
+git reset --soft HEAD^
+git commit --amend -m 'New message'
+git reset --hard HEAD^
+git reset --hard HEARD^^
+
