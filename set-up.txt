@@ -10,7 +10,3 @@ mkdir gitstore
 cd gitstore
 
 git init << This command initialized empty git repository on the local machine
-
-
-
-
