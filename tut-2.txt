@@ -90,6 +90,19 @@ Example:
 # Abother way to add and commit the file in one line made some change in files.
  - git commit -a -m 'How to git add and commit in one line'
 
+Example:
+  git commit -a -m 'Using git commit -a -m msg in one line.'
+  [main dd65c58] Using git commit -a -m msg in one line.
+   2 files changed, 4 insertions(+), 2 deletions(-)
+
+Notice: 
+ * 2 file has made some changed and used git commit -a -m 'the message'
+
+
+# Next another changed made in file.txt added and commited to the stage to undo this file
+ - git reset --soft HEAD^
+ * what is happening after will undo or unstaged the file back to the local after commit
+ - git status (display unstaged the file back to local )
 
 
 HEAD command refered to last commit in current branch and timeline on.
