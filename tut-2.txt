@@ -63,28 +63,19 @@ Example:
     +# if we run git diff tut-2.txt doesn't show anything
     + - git diff tut-2.txt
 
+# NOTICE:
+   * git diff file.txt  >> used before add to the server(stage)
+   * git diff --staged file.txt >> used after added to the server(stage)
 
-Git-tutorials$ git reset HEAD LICENSE
-Unstaged changes after reset:
-M   tut-2.txt
-Git-tutorials$ git status
-On branch main
-Your branch is up-to-date with 'origin/main'.
 
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-    new file:   tut-2.txt
+# rest HEAD is another command used when you create file and added to the stage or server
+ - git add file.txt
+ * when we run git status shows that the file added to the stage to unstaged again use
+ - git reset HEAD file.txt   (This is like undo the file from adding)    
 
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-    modified:   tut-2.txt
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-    LICENSE
 
-################
+
 
 HEAD command refered to last commit in current branch and timeline on.
 
