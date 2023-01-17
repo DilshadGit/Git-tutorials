@@ -111,29 +111,14 @@ Notice:
   = git commit --amend -m 'How to use amend command with commit adding extra msg to last commit'
 
 
+# The reset --soft HEAD^ is undo last commit, put changes into staging
+ - git reset --soft HEAD^  (Undo commit, put changes into staging)
+ - get commit --amend -m 'Add new msg to last commit'  (change the last commit)
+ - git reset --hard HEAD^  (Undo last commit and all changes)
+ - git reset --hard HEAD^^  (Undo the last 2 commit and all changes)
 
 
 
-HEAD command refered to last commit in current branch and timeline on.
-
-git checkout -- LICENSE  <-- Blow away all changed since last commit
-
-git commit -a -m "Modify readme"
-
-This (git commit -a -m "Modify readme") is a short cut of git add && git commit -m 'Modify readme',
-it add and commit in one line (add changes from all tracked files)
-
-git reset --soft HEAD^
-
-The (--soft) Reset into staging
-The (^) Move to commit before 'HEAD'
-
-=======
->>>>>>> fd948db (How to use amend command with commit adding extra msg to last commit)
-Example:
-  git commit -a -m 'Using git commit -a -m msg in one line.'
-  [main dd65c58] Using git commit -a -m msg in one line.
-   2 files changed, 4 insertions(+), 2 deletions(-)
 
 Notice: 
  * 2 file has made some changed and used git commit -a -m 'the message'
@@ -151,72 +136,63 @@ Notice:
   = git commit --amend -m 'How to use amend command with commit adding extra msg to last commit'
 
 
-
-
-touch todo.txt
-Git-tutorials$ git add todo.txt
-Git-tutorials$ git commit --amend -m "Modify readme & add todo.txt"
-[main 9257e0a] Modify readme & add todo.txt
- Date: Thu Apr 28 01:25:13 2022 +0100
- 4 files changed, 37 insertions(+), 4 deletions(-)
- create mode 100644 todo.txt
- create mode 100644 tut-1.txt
- create mode 100644 tut-2.txt
-
-The (--amend) Add to the last commit
-The ("Modify readme & add todo.txt") Is a new commit message whatever has been staged is added to the last commit
-
-git reset --soft HEAD^ <-- Undo last commit, put changes into staging
-
-git commit --amend -m "New messages" <-- change the last commit
-
-git reset --hard HEAD^ <-- Undo last commit and all changes has been made
-
-git reset --hard HEAD^^ <-- Undo the last 2 commits and all changes has been made
-
+# Push and Pull with Remote
+# We create new repo on github and connecting from local machine using remote
 GitHub:
-Create Repository on www.github.com/new
 
-git remote add origin https://github.com/Dilshadgit/repositoryname
+# Create new Repository on https://.github.com/newrepo
+# This is optional >>which is included README.md file and .gitignore
 
-The (add) New remote
-The (origin) Our name for this remote
-The (https://github.com/Dilshadgit/repositoryname) Is the address
-
-git remote -v
-
-The (-v) show remote repositories
-
-Push to Remote
-
+touch GUIDE.md
+git init
+git commit -a -m 'Add new file all in one line'
+git remote add origin git@github.com:DilshadGit/newrepo.git
 git push -u origin main
 
-The (origin) remote repository name
-The (main) local branch to push
 
-In this case the terminal required:
-username of gitgub account and password
+ - git remote add origin https://github.com/Dilshadgit/repositoryname
 
-git pull <-- this pull the changes to the machine
+# The (add) New remote
+# The (origin) Our name for this remote
+# The (https://github.com/Dilshadgit/repositoryname) Is the address
 
-Working with remote repository:
+# The (-v) show remote repositories
+ - git remote -v
+ - origin https://github.com:DilshadGit/newrepo.git (fetch)
+ - origin https://github.com:DilshadGit/newrepo.git (push)
 
-To add new remots:
-git remote add <name> <address> (Look at line 159)
+# Push to Remote
+ - git push -u origin main
 
-To remove remotes:
-git remote rm <name>
+# NOTICE:
+ # The (origin) remote repository name
+ # The (main) local branch to push
 
-To push to remote:
-git push -u <name> <branch>
+ # In this case the terminal required:
+ # username of gitgub account and password
 
-The <branch> Usually is master branch
-The (-u) Is used first but the next time not need to specify the branch name just run git push
+   - git pull <-- this pull the changes to the machine
+
+ # Working with remote repository:
+
+ # To add new remots:
+  - git remote add <name> <address> (Look at line 159)
+
+ # To remove remotes:
+  - git remote rm <name>
+
+ # To push to remote:
+  - git push -u <name> <branch>
+
+ # The <branch> Usually is master branch
+  - The (-u) Is used first but the next time not need to specify the branch name just run git push
+
 
 HEROKU REMOTE:
 
-$ heroku create
-create the branch and showing git repo ssh address
+# create the branch and showing git repo ssh address
+$ - heroku create
+
 
 Example:
 Git-tutorials$ heroku create
@@ -239,5 +215,5 @@ git commit --amend -m 'New message'
 git reset --hard HEAD^
 git reset --hard HEARD^^
 
-# This don't use this command after pushed!!!
+# Don't use or run this command after pushed!!!
 
