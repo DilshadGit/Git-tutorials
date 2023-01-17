@@ -86,7 +86,9 @@ Example:
  • if we run the status command again doesn't show anything changed.
  - git status
 
- 
+
+# Abother way to add and commit the file in one line made some change in files.
+ - git commit -a -m 'How to git add and commit in one line'
 
 
 
