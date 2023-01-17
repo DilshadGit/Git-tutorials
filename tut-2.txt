@@ -74,6 +74,19 @@ Example:
  - git reset HEAD file.txt   (This is like undo the file from adding)    
 
 
+# Next checkout command used when you add file to stage than you run git status to show you
+# which file in the stage, and  we decide to unstage the file run git reset HEAD file.txt
+ - git add file.txt
+ - git status 
+ # Now we unstage the file back to local
+ - git reset HEAD file.txt
+ - git status   (now display the change has been made like history)
+ * To destroy all changes hase been made since last commit run:
+ - git checkout -- file.txt
+ • if we run the status command again doesn't show anything changed.
+ - git status
+
+ 
 
 
 
