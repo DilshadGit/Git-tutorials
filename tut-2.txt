@@ -105,6 +105,15 @@ Notice:
  - git status (display unstaged the file back to local )
 
 
+# we add file and commited to stage area and we decide to add some more messages we forgot
+  to write in the last commit we use --amend 
+  - git add file.txt
+  = git commit --amend -m 'How to use amend command with commit adding extra msg to last commit'
+
+
+
+
+
 HEAD command refered to last commit in current branch and timeline on.
 
 git checkout -- LICENSE  <-- Blow away all changed since last commit
@@ -119,28 +128,30 @@ git reset --soft HEAD^
 The (--soft) Reset into staging
 The (^) Move to commit before 'HEAD'
 
+=======
+>>>>>>> fd948db (How to use amend command with commit adding extra msg to last commit)
 Example:
-Git-tutorials$ git reset --soft HEAD^
-Git-tutorials$ git status
-On branch main
-Your branch is behind 'origin/main' by 1 commit, and can be fast-forwarded.
-  (use "git pull" to update your local branch)
+  git commit -a -m 'Using git commit -a -m msg in one line.'
+  [main dd65c58] Using git commit -a -m msg in one line.
+   2 files changed, 4 insertions(+), 2 deletions(-)
 
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-    new file:   tut-1.txt
-    new file:   tut-2.txt
+Notice: 
+ * 2 file has made some changed and used git commit -a -m 'the message'
 
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-    modified:   tut-2.txt
 
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-    LICENSE
+# Next another changed made in file.txt added and commited to the stage to undo this file
+ - git reset --soft HEAD^
+ * what is happening after will undo or unstaged the file back to the local after commit
+ - git status (display unstaged the file back to local )
 
-##########################
+
+# we add file and commited to stage area and we decide to add some more messages we forgot
+  to write in the last commit we use --amend 
+  - git add file.txt
+  = git commit --amend -m 'How to use amend command with commit adding extra msg to last commit'
+
+
+
 
 touch todo.txt
 Git-tutorials$ git add todo.txt
