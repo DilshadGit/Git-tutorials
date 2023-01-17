@@ -118,8 +118,6 @@ Notice:
  - git reset --hard HEAD^^  (Undo the last 2 commit and all changes)
 
 
-
-
 Notice: 
  * 2 file has made some changed and used git commit -a -m 'the message'
 
