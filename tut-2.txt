@@ -218,3 +218,5 @@ git commit --amend -m 'New message'
 git reset --hard HEAD^
 git reset --hard HEARD^^
 
+# This don't use this command after pushed!!!
+
