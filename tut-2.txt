@@ -1,77 +1,68 @@
-git diff
+# This (git diff) Show unstaged differences since last commit.
+- git diff
 
-This (git diff) Show unstaged differences since last commit.
 
-git add tut-2.txt
+# When you add the file to staged area and run git diff doesn't display any changes
+- git add tut-2.txt
+# if we run git diff tut-2.txt doesn't show anything
+ - git diff tut-2.txt
 
-When you add the file to staged area and run git diff doesn't display any change because we alread
-added to stage area (to current branch). But if we change some more in the tut-2.txt file and run
-git diff will show the changes has been done before add to the branch.
+
+ # If we not add the file to the stage area (in current branch). But if we made some changes in the tut-2.txt file and run the git diff file name like tut-2.txt show the changes has made
+ - git diff tut-2.txt
 
 Example:
-Git-tutorials$ git diff
-diff --git a/tut-2.txt b/tut-2.txt
-index e69de29..f0dce39 100644
---- a/tut-2.txt
-+++ b/tut-2.txt
-@@ -0,0 +1,11 @@
-+git diff
-+
-+This (git diff) Show unstaged differences since last commit.
-+
-+git add tut-2.txt
-+
-+When you add the file to staged area and run git diff doesn't display any change because we alread
-+added to stage area (to current branch). But if we change some more in the tut-2.txt file and run
-+git diff will show the changes has been done before add to the branch.
-+
-+
+    Git-tutorials$ git diff 
+    diff --git a/tut-2.txt b/tut-2.txt
+    index e69de29..f0dce39 100644
+    --- a/tut-2.txt
+    +++ b/tut-2.txt
+    @@ -0,0 +1,11 @@
+    +git diff
+    +
+    +This (git diff) Show unstaged differences since last commit.
+    +
+    +git add tut-2.txt
+    +
+    +When you add the file to staged area and run git diff doesn't display any change because we alread
+    +added to stage area (to current branch). But if we change some more in the tut-2.txt file and run
+    +git diff will show the changes has been done before add to the branch.
+    +
+    +
 
 git diff --staged
 
-diff --git a/tut-2.txt b/tut-2.txt
-new file mode 100644
-index 0000000..e69de29
+# Th above example will show in terminal red is the old file and green is the new change
 
-##############
 
-git reset HEAD <filename>
+# Now we add the file to stage area or say server 
+ - git add tut-2.txt
+
+ * if we run git diff tut-2.txt nothing display because already added to the server (stage)
+
+ # to show the change we have to run:
+   - git diff --staged tut-2.txt file 
+   * display the change has been made.
 
 Example:
-touch LICENSE
-Git-tutorials$ ls
-git-help.txt  LICENSE  README.md  set-up.txt  tut-1.txt  tut-2.txt
-Git-tutorials$ git status
-On branch main
-Your branch is up-to-date with 'origin/main'.
+    % git diff --staged tut-2.txt
+    diff --git a/tut-2.txt b/tut-2.txt
+    index a3534df..53e17c9 100644
+    --- a/tut-2.txt
+    +++ b/tut-2.txt
+    @@ -1,34 +1,40 @@
+    -git diff
+    +# This (git diff) Show unstaged differences since last commit.
+    +- git diff
+    
+    -This (git diff) Show unstaged differences since last commit.
+    
+    -git add tut-2.txt
+    +# When you add the file to staged area and run git diff doesn't display any changes
+    +- git add tut-2.txt
+    +# if we run git diff tut-2.txt doesn't show anything
+    + - git diff tut-2.txt
 
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-    new file:   tut-2.txt
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-    modified:   tut-2.txt
-
-Untracked files:
-  (use "git add <file>..." to include in what will be committed)
-    LICENSE
-
-Git-tutorials$ git add LICENSE
-Git-tutorials$ git status
-On branch main
-Your branch is up-to-date with 'origin/main'.
-
-Changes to be committed:
-  (use "git restore --staged <file>..." to unstage)
-    new file:   LICENSE
-    new file:   tut-2.txt
-
-Changes not staged for commit:
-  (use "git add <file>..." to update what will be committed)
-  (use "git restore <file>..." to discard changes in working directory)
-    modified:   tut-2.txt
 
 Git-tutorials$ git reset HEAD LICENSE
 Unstaged changes after reset:
