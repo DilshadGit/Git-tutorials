@@ -8,10 +8,10 @@ create new branch and push to remote
 # to check the branch localy 
 - git branch
 
-# to check the branch remotely
+# to check or see all the branch remotely
 - git branch -r
 
-# tp-o display all remote branches
+# to display all remote branches
 - git remote show origin
 
 # Delete remote branch

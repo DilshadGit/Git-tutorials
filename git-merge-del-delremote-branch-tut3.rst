@@ -45,6 +45,7 @@
    a-branch
    b-branch
  * main
+ 
  # We are in main branch check if the python.txt file there!
  - ls
 	README.md
@@ -106,3 +107,8 @@
 	remote: Resolving deltas: 100% (1/1), done.
 	To github.com:DilshadGit/newrepo.git
 	7b3a1f4..1c3eb72  main -> main
+
+# Delete .folder from repository remotly from local machine
+ - git rm -r --cached .idea/
+ - git commit -m 'Removed .idea from repository remotly use local machine'
+ - git push

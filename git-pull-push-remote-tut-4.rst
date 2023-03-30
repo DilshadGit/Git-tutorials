@@ -1,4 +1,4 @@
-# Working in the same branch one done some change localy and other remotly when push to remote conflict start. run
+# Working in the same branch one, have done some change localy and other remotly when push to remote conflict start. run
 - git pull
 - git push
 
