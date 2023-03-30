@@ -93,6 +93,7 @@
  - git branch              
  * b-branch
    main
+
  - git checkout main
  * we merged a-branch to main and need to commit the main branch
  - git commit -m 'merged the python.txt from a-branch and deleted a-branch.'
@@ -112,3 +113,10 @@
  - git rm -r --cached .idea/
  - git commit -m 'Removed .idea from repository remotly use local machine'
  - git push
+
+ # SUMMARY
+ * Delete branch locally
+ * git branch -D <branch-name>
+
+ * Delete branch remotely
+ - git push origin --delete <branch-name>
