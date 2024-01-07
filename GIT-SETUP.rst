@@ -1,5 +1,10 @@
+# sudo apt install git
+
 git config --global user.name 'DilshadGit'
 git config --global email.name 'Dilshad@gmail.com'
+
+# Check details
+git config --list
 
 git config --global color.ui true >> Pretty command line colors
 
